@@ -12,7 +12,7 @@
       dir="${maven.project.build.directory}/marketplace" />
     <mkdir dir="${maven.project.build.directory}/marketplace" />
 
-    <copy todir="${maven.project.build.directory}/marketplace/bundles"
+    <copy todir="${maven.project.build.directory}/marketplace/install/bundles"
       overwrite="true">
       <artifact:set>
         <includes>
@@ -26,7 +26,7 @@
 
     <!-- sample to retrieve all modules and libs from deps -->
     <!-- 
-      <copy todir="${maven.project.build.directory}/marketplace/bundles"
+      <copy todir="${maven.project.build.directory}/marketplace/install/bundles"
       overwrite="true">
       <artifact:set>
       <includes>
@@ -48,7 +48,11 @@
     -->
 
     <copy todir="${maven.project.build.directory}/marketplace">
-      <fileset dir="src/main/resources"></fileset>
+      <fileset dir="src/main/resources" />
+      <filterset>
+        <filter token="VERSION" value="${smart.search.marketplace.version}" />
+        <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
+      </filterset>
     </copy>
     <zip
       destfile="${maven.project.build.directory}/${maven.project.artifactId}-${maven.project.version}.zip"

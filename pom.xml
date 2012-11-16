@@ -6,13 +6,18 @@
   <parent>
     <groupId>org.nuxeo.ecm.platform</groupId>
     <artifactId>nuxeo-platform-smart-search-parent</artifactId>
-    <version>5.4.2</version>
+    <version>5.6</version>
   </parent>
 
   <groupId>org.nuxeo.ecm.platform</groupId>
   <artifactId>nuxeo-platform-smart-search-marketplace</artifactId>
   <packaging>pom</packaging>
   <name>Utility POM to retrieve Smart Search addon modules</name>
+
+  <properties>
+    <smart.search.marketplace.version>5.6</smart.search.marketplace.version>
+    <nuxeo.distribution.version>5.6</nuxeo.distribution.version>
+  </properties>
 
   <dependencies>
     <dependency>
