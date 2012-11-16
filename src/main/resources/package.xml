@@ -2,14 +2,17 @@
 <package name="nuxeo-platform-smart-search" version="@VERSION@" type="addon">
   <title>Smart Search</title>
   <description>
-    This module adds UI features to build a query, and save it in a document.
+    This module adds UI features to build a query, and save it in a
+    document.
   </description>
   <vendor>Nuxeo</vendor>
   <license>LGPL</license>
   <nuxeo-validation>primary_validation</nuxeo-validation>
   <production-state>testing</production-state>
   <platforms>
-    <platform>dm-@DISTRIB_VERSION@</platform>
+    <platform>cap-@DISTRIB_VERSION@</platform>
   </platforms>
-  <dependencies></dependencies>
+  <dependencies>
+    <package>nuxeo-dm:@DISTRIB_VERSION@</package>
+  </dependencies>
 </package>
