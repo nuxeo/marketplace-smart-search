@@ -10,9 +10,9 @@
   <nuxeo-validation>primary_validation</nuxeo-validation>
   <production-state>testing</production-state>
   <platforms>
-    <platform>cap-@DISTRIB_VERSION@</platform>
+    <platform>cap-@TARGET_VERSION@</platform>
   </platforms>
   <dependencies>
-    <package>nuxeo-dm:@DISTRIB_VERSION@</package>
+    <package>nuxeo-dm:@TARGET_VERSION@</package>
   </dependencies>
 </package>

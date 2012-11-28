@@ -52,13 +52,14 @@
       <filterset>
         <filter token="VERSION" value="${smart.search.marketplace.version}" />
         <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
+        <filter token="TARGET_VERSION" value="${nuxeo.target.version}" />
       </filterset>
     </copy>
     <zip
-      destfile="${maven.project.build.directory}/${maven.project.artifactId}-${maven.project.version}.zip"
+      destfile="${maven.project.build.directory}/${maven.project.artifactId}-${smart.search.marketplace.version}.zip"
       basedir="${maven.project.build.directory}/marketplace" />
     <artifact:attach
-      file="${maven.project.build.directory}/${maven.project.artifactId}-${maven.project.version}.zip"
+      file="${maven.project.build.directory}/${maven.project.artifactId}-${smart.search.marketplace.version}.zip"
       target="${maven.project.groupId}:${maven.project.artifactId}" type="zip" />
   </target>
 
