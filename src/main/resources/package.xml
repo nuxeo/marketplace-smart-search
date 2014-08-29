@@ -2,7 +2,7 @@
 <package name="nuxeo-platform-smart-search" version="@VERSION@" type="addon">
   <title>Smart Search</title>
   <description>
-    This module provides a powerful search tool in the Nuxeo Platform, enabling users to build an advanced search query with an easy-to-use graphical interface. 
+    This module provides a powerful search tool in the Nuxeo Platform, enabling users to build an advanced search query with an easy-to-use graphical interface.
     Queries can also be saved for future reference.
   </description>
   <vendor>Nuxeo</vendor>
@@ -15,4 +15,5 @@
   <dependencies>
     <package>nuxeo-dm:@TARGET_VERSION@</package>
   </dependencies>
+  <visibility>PUBLIC</visibility>
 </package>
