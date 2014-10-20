@@ -6,14 +6,12 @@
     Queries can also be saved for future reference.
   </description>
   <vendor>Nuxeo</vendor>
-  <license>LGPL</license>
+  <license>LGPL 2.1</license>
+  <license-url>http://www.gnu.org/licenses/lgpl-2.1.html</license-url>
   <nuxeo-validation>primary_validation</nuxeo-validation>
   <production-state>testing</production-state>
   <platforms>
     <platform>cap-@TARGET_VERSION@</platform>
   </platforms>
-  <dependencies>
-    <package>nuxeo-dm:@TARGET_VERSION@</package>
-  </dependencies>
   <visibility>PUBLIC</visibility>
 </package>
