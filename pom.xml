@@ -9,12 +9,12 @@
 
   <groupId>org.nuxeo.ecm.platform</groupId>
   <artifactId>nuxeo-platform-smart-search-marketplace</artifactId>
-  <version>1.7.0-SNAPSHOT</version>
+  <version>1.8.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Utility POM to retrieve Smart Search addon modules</name>
 
   <properties>
-    <marketplace.smartsearch.version>1.7.0-SNAPSHOT</marketplace.smartsearch.version>
+    <marketplace.smartsearch.version>1.8.0-SNAPSHOT</marketplace.smartsearch.version>
     <nuxeo.distribution.version>8.1-SNAPSHOT</nuxeo.distribution.version>
   </properties>
 
