@@ -13,7 +13,7 @@
   <property name="mp.install" value="file:${out.dir}/marketplace-smart-search-${maven.project.version}.zip" />
   <target name="prepare-environment" depends="_init,prepare-db,prepare-tomcat,prepare-jboss">
     <copy todir="${out.dir}">
-      <artifact:file key="org.nuxeo.marketplace.smartsearch:marketplace-smart-search::zip" />
+      <artifact:file key="org.nuxeo.marketplace.smartsearch:marketplace-smart-search:${maven.project.version}:zip" />
     </copy>
   </target>
 
