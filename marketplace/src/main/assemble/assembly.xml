@@ -8,13 +8,14 @@
 
   <target name="build"
           description="Build Nuxeo Smart Search Marketplace package">
+    <property name="outdir" value="${maven.project.build.directory}" />
     <artifact:nuxeo-expand />
 
     <delete failonerror="false"
-            dir="${maven.project.build.directory}/marketplace" />
-    <mkdir dir="${maven.project.build.directory}/marketplace" />
+            dir="${outdir}/marketplace" />
+    <mkdir dir="${outdir}/marketplace" />
 
-    <copy todir="${maven.project.build.directory}/marketplace/install/bundles"
+    <copy todir="${outdir}/marketplace/install/bundles"
           overwrite="true">
       <artifact:set>
         <includes>
@@ -26,16 +27,16 @@
       </artifact:set>
     </copy>
 
-    <copy todir="${maven.project.build.directory}/marketplace">
+    <copy todir="${outdir}/marketplace">
       <fileset dir="src/main/resources" />
       <filterset>
         <filter token="VERSION" value="${maven.project.version}" />
-        <filter token="TARGET_VERSION" value="${nuxeo.distribution.version}" />
+        <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
       </filterset>
     </copy>
-    <zip destfile="${maven.project.build.directory}/${maven.project.artifactId}-${maven.project.version}.zip"
-         basedir="${maven.project.build.directory}/marketplace" />
-    <artifact:attach file="${maven.project.build.directory}/${maven.project.artifactId}-${maven.project.version}.zip"
+    <zip destfile="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
+         basedir="${outdir}/marketplace" />
+    <artifact:attach file="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
                      type="zip" />
   </target>
 
