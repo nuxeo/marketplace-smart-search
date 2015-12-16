@@ -1,4 +1,4 @@
-<project name="sample-webdriver-tests" xmlns:nx="urn:nuxeo-build" xmlns:artifact="urn:nuxeo-artifact">
+<project name="smart-search-webdriver-tests" xmlns:nx="urn:nuxeo-build" xmlns:artifact="urn:nuxeo-artifact">
   <taskdef resource="org/nuxeo/build/antlib.xml" uri="urn:nuxeo-build" />
   <taskdef resource="org/nuxeo/build/artifact/antlib.xml" uri="urn:nuxeo-artifact" />
   <taskdef resource="net/sf/antcontrib/antlib.xml" />
@@ -11,7 +11,6 @@
   <import file="${out.dir}/nuxeo-ftest.xml" />
 
   <property name="mp.install" value="file:${out.dir}/marketplace-smart-search-${maven.project.version}.zip" />
-  <!-- Override default prepare-environment target to make it download your MP -->
   <target name="prepare-environment" depends="_init,prepare-db,prepare-tomcat,prepare-jboss">
     <copy todir="${out.dir}">
       <artifact:file key="org.nuxeo.marketplace.smartsearch:marketplace-smart-search::zip" />
