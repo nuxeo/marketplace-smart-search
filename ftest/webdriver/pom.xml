@@ -9,8 +9,8 @@
   </parent>
 
   <artifactId>marketplace-smart-search-webdriver</artifactId>
-  <name>Sample functional tests with WebDriver</name>
-  <description>Sample functional tests with WebDriver</description>
+  <name>Smart Search functional tests with WebDriver</name>
+  <description>Smart Search functional tests with WebDriver</description>
 
   <dependencies>
     <dependency>
