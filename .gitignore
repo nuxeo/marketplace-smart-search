@@ -1,5 +1,15 @@
-target
+syntax:glob
+.classpath
+.project
+.settings
 bin
+target
 *~
 *.orig
-.project
+*.ipr
+*.iml
+*.iws
+.DS_Store
+*.gpd.*
+*cpJar*
+build.properties
