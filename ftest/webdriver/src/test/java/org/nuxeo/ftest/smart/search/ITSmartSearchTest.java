@@ -50,7 +50,7 @@ public class ITSmartSearchTest extends AbstractTest {
 
     protected final static String SAVED_SEARCHES_TITLE = "Searches";
 
-    protected final static String SMART_FOLDER_DOCTYPE_TITLE = "Smart folder";
+    protected final static String SMART_FOLDER_DOCTYPE_TITLE = "Smart Folder";
 
     protected final static String MANAGE_PERMISSION_LABEL = "Manage everything";
 
