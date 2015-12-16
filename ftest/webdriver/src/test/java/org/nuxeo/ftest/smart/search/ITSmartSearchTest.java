@@ -36,8 +36,8 @@ import org.nuxeo.functionaltests.pages.HomePage;
 import org.nuxeo.functionaltests.pages.admincenter.usermanagement.UsersTabSubPage;
 import org.nuxeo.functionaltests.pages.search.SearchPage;
 import org.nuxeo.functionaltests.pages.search.SearchResultsSubPage;
+import org.nuxeo.functionaltests.pages.tabs.AccessRightsSubPage;
 import org.nuxeo.functionaltests.pages.tabs.ContentTabSubPage;
-import org.nuxeo.functionaltests.pages.tabs.PermissionsSubPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -76,10 +76,12 @@ public class ITSmartSearchTest extends AbstractTest {
         DocumentBasePage ws = createWorkspace(base, wsTitle, null);
 
         // allow test user to create doc in it
-        PermissionsSubPage permissionsSubPage = ws.getPermissionsTab();
-        if (!permissionsSubPage.hasPermissionForUser(MANAGE_PERMISSION_LABEL, TEST_USERNAME)) {
-            permissionsSubPage.grantPermissionForUser(MANAGE_PERMISSION_LABEL, TEST_USERNAME);
+        AccessRightsSubPage accessRightSubTab = ws.getManageTab().getAccessRightsSubTab();
+        // Need Read
+        if (!accessRightSubTab.hasPermissionForUser(MANAGE_PERMISSION_LABEL, TEST_USERNAME)) {
+            accessRightSubTab.grantPermissionForUser(MANAGE_PERMISSION_LABEL, TEST_USERNAME);
         }
+
         // create a test file under workspace
         docTitle = "Test Smart Doc " + new Date().getTime();
         createFile(ws, docTitle, null, false, null, null, null);
