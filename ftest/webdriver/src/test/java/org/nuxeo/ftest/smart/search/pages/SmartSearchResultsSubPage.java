@@ -27,19 +27,15 @@ import org.openqa.selenium.support.FindBy;
 /**
  * @since 8.1
  */
-public class SmartFolderContentTab {
+public class SmartSearchResultsSubPage {
 
     private static final String SEARCH_RESULTS_XPATH = ".//table/tbody/tr";
 
     @Required
-    @FindBy(xpath = "//form[@id='nxl_nxql_incremental_smart_folder_content_view:nxql_incremental_smart_folder_nxw_content_view']")
+    @FindBy(xpath = "//div[@id='nxw_searchContentView']//div[contains(@id, 'nxw_searchContentView_resultsPanel')]/form")
     protected WebElement resultForm;
 
-    @Required
-    @FindBy(xpath = "//div[@id='nxw_documentTabs_tab_content']//td[@class='fieldColumn']")
-    protected WebElement query;
-
-    public int getNumberOfDocuments() {
+    public int getNumberOfDocumentInCurrentPage() {
         List<WebElement> result = resultForm.findElements(By.xpath(SEARCH_RESULTS_XPATH));
         return result.size();
     }
@@ -53,10 +49,6 @@ public class SmartFolderContentTab {
         } catch (NoSuchElementException e) {
             return null;
         }
-    }
-
-    public String getQuery() {
-        return query.getText();
     }
 
 }
