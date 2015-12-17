@@ -31,7 +31,8 @@
       <fileset dir="src/main/resources" />
       <filterset>
         <filter token="VERSION" value="${maven.project.version}" />
-        <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
+        <filter token="DISTRIB_VERSION" value="${package.target.version}" />
+        <filter token="SNAPSHOT_SUFFIX" value="${package.snapshot.suffix}" />
       </filterset>
     </copy>
     <zip destfile="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"

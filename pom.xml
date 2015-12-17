@@ -13,6 +13,11 @@
   <packaging>pom</packaging>
   <name>Utility POM for Smart Search Nuxeo Package</name>
 
+  <properties>
+    <package.target.version>6.0</package.target.version>
+    <package.snapshot.suffix>-SNAPSHOT</package.snapshot.suffix>
+  </properties>
+
   <modules>
     <module>marketplace</module>
   </modules>
@@ -23,6 +28,12 @@
       <modules>
         <module>ftest/webdriver</module>
       </modules>
+    </profile>
+    <profile>
+      <id>release</id>
+      <properties>
+        <package.snapshot.suffix></package.snapshot.suffix>
+      </properties>
     </profile>
   </profiles>
 

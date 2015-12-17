@@ -11,8 +11,8 @@
   <nuxeo-validation>primary_validation</nuxeo-validation>
   <production-state>testing</production-state>
   <platforms>
-    <platform>cap-@DISTRIB_VERSION@</platform>
-    <platform>cap-@DISTRIB_VERSION@-HF*</platform>
+    <platform>cap-@DISTRIB_VERSION@@SNAPSHOT_SUFFIX@</platform>
+    <platform>cap-@DISTRIB_VERSION@-HF*@SNAPSHOT_SUFFIX@</platform>
   </platforms>
   <visibility>PUBLIC</visibility>
 </package>
