@@ -26,6 +26,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.nuxeo.ftest.smart.search.pages.SmartFolderContentTab;
 import org.nuxeo.ftest.smart.search.pages.SmartFolderCreationPage;
+import org.nuxeo.ftest.smart.search.pages.SmartSearchResultsSubPage;
 import org.nuxeo.ftest.smart.search.pages.SmartSearchSubPage;
 import org.nuxeo.functionaltests.AbstractTest;
 import org.nuxeo.functionaltests.AjaxRequestManager;
@@ -35,7 +36,6 @@ import org.nuxeo.functionaltests.pages.DocumentBasePage.UserNotConnectedExceptio
 import org.nuxeo.functionaltests.pages.HomePage;
 import org.nuxeo.functionaltests.pages.admincenter.usermanagement.UsersTabSubPage;
 import org.nuxeo.functionaltests.pages.search.SearchPage;
-import org.nuxeo.functionaltests.pages.search.SearchResultsSubPage;
 import org.nuxeo.functionaltests.pages.tabs.ContentTabSubPage;
 import org.nuxeo.functionaltests.pages.tabs.PermissionsSubPage;
 import org.openqa.selenium.By;
@@ -126,15 +126,16 @@ public class ITSmartSearchTest extends AbstractTest {
         SmartSearchSubPage ssp = asPage(SmartSearchSubPage.class);
 
         ssp.filterWith("Title", "CONTAINS", "Smart Doc");
-        SearchResultsSubPage rp = asPage(SearchPage.class).getSearchResultsSubPage();
+        SmartSearchResultsSubPage rp = asPage(SmartSearchResultsSubPage.class);
         assertEquals(1, rp.getNumberOfDocumentInCurrentPage());
         assertEquals(docTitle, rp.getListResults().get(0).findElement(By.className("documentTitle")).getText());
 
         // create a smart folder from this search
-        assertEquals(1, driver.findElements(By.xpath("//input[@value='Save As']")).size());
+        String saveAsPath = "//input[contains(@id, 'nxw_searchResultsActions_saveSearch_link')]";
+        assertEquals(1, driver.findElements(By.xpath(saveAsPath)).size());
         AjaxRequestManager arm = new AjaxRequestManager(driver);
         arm.begin();
-        driver.findElement(By.xpath("//input[@value='Save As']")).click();
+        driver.findElement(By.xpath(saveAsPath)).click();
         arm.end();
 
         WebElement fancybox = Locator.findElementWithTimeout(By.id("nxw_searchResultsActions_saveSearch_box"));
