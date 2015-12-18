@@ -90,7 +90,6 @@ public class ITSmartSearchTest extends AbstractTest {
 
     @After
     public void tearDown() throws UserNotConnectedException {
-        login();
         // remove test user
         UsersTabSubPage usersTab = login().getAdminCenter().getUsersGroupsHomePage().getUsersTab();
         usersTab = usersTab.searchUser(TEST_USERNAME);
