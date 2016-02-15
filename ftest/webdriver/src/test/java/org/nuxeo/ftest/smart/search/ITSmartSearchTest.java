@@ -130,14 +130,14 @@ public class ITSmartSearchTest extends AbstractTest {
         assertEquals(docTitle, rp.getListResults().get(0).findElement(By.className("documentTitle")).getText());
 
         // create a smart folder from this search
-        String saveAsPath = "//input[contains(@id, 'nxw_searchResultsActions_saveSearch_link')]";
+        String saveAsPath = "//input[contains(@id, 'nxw_saveSearch_link')]";
         assertEquals(1, driver.findElements(By.xpath(saveAsPath)).size());
         AjaxRequestManager arm = new AjaxRequestManager(driver);
         arm.begin();
         driver.findElement(By.xpath(saveAsPath)).click();
         arm.end();
 
-        WebElement fancybox = Locator.findElementWithTimeout(By.id("nxw_searchResultsActions_saveSearch_box"));
+        WebElement fancybox = Locator.findElementWithTimeout(By.id("nxw_saveSearch_after_view_box"));
         String sfTitle = "Test Smart Folder Created From Search " + new Date().getTime();
         fancybox.findElement(By.xpath(".//input[@type='text']")).sendKeys(sfTitle);
         arm.begin();
