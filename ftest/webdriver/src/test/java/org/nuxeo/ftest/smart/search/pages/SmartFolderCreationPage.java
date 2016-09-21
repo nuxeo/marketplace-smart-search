@@ -17,6 +17,7 @@
 package org.nuxeo.ftest.smart.search.pages;
 
 import org.nuxeo.functionaltests.AjaxRequestManager;
+import org.nuxeo.functionaltests.Locator;
 import org.nuxeo.functionaltests.pages.DocumentBasePage;
 import org.nuxeo.functionaltests.pages.forms.DublinCoreCreationDocumentFormPage;
 import org.openqa.selenium.By;
@@ -55,10 +56,9 @@ public class SmartFolderCreationPage extends DublinCoreCreationDocumentFormPage 
         titleTextInput.sendKeys(title);
 
         selectCriterion(criterion, operator, value);
-        WebElement addButton = driver.findElement(By.xpath("//input[contains(@id, '_addToQuery')]"));
         AjaxRequestManager arm = new AjaxRequestManager(driver);
         arm.begin();
-        addButton.click();
+        Locator.findElementWaitUntilEnabledAndClick(By.xpath("//input[contains(@id, '_addToQuery')]"));
         arm.end();
 
         create();

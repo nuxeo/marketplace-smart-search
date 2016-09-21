@@ -16,14 +16,14 @@
  */
 package org.nuxeo.ftest.smart.search;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
 import java.util.Date;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.nuxeo.ecm.core.test.FakeSmtpMailServerFeature;
 import org.nuxeo.ftest.smart.search.pages.SmartFolderContentTab;
 import org.nuxeo.ftest.smart.search.pages.SmartFolderCreationPage;
 import org.nuxeo.ftest.smart.search.pages.SmartSearchResultsSubPage;
@@ -38,12 +38,18 @@ import org.nuxeo.functionaltests.pages.admincenter.usermanagement.UsersTabSubPag
 import org.nuxeo.functionaltests.pages.search.SearchPage;
 import org.nuxeo.functionaltests.pages.tabs.ContentTabSubPage;
 import org.nuxeo.functionaltests.pages.tabs.PermissionsSubPage;
+import org.nuxeo.runtime.test.runner.Features;
+import org.nuxeo.runtime.test.runner.FeaturesRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * @since 8.1
  */
+@RunWith(FeaturesRunner.class)
+@Features({ FakeSmtpMailServerFeature.class })
 public class ITSmartSearchTest extends AbstractTest {
 
     protected final static String WS_ROOT_TITLE = "Workspaces";
@@ -73,16 +79,16 @@ public class ITSmartSearchTest extends AbstractTest {
 
         // create test ws
         wsTitle = "Test Smart Workspace " + new Date().getTime();
-        DocumentBasePage ws = createWorkspace(base, wsTitle, null);
+        DocumentBasePage ws = base.createWorkspace(wsTitle, null);
 
         // allow test user to create doc in it
         PermissionsSubPage permissionsSubPage = ws.getPermissionsTab();
-        if (!permissionsSubPage.hasPermissionForUser(MANAGE_PERMISSION_LABEL, TEST_USERNAME)) {
-            permissionsSubPage.grantPermissionForUser(MANAGE_PERMISSION_LABEL, TEST_USERNAME);
+        if (!permissionsSubPage.hasPermission(MANAGE_PERMISSION_LABEL, TEST_USERNAME)) {
+            permissionsSubPage.grantPermission(MANAGE_PERMISSION_LABEL, TEST_USERNAME);
         }
         // create a test file under workspace
         docTitle = "Test Smart Doc " + new Date().getTime();
-        createFile(ws, docTitle, null, false, null, null, null);
+        ws.createFile(docTitle, null, false, null, null, null);
         logout();
     }
 
