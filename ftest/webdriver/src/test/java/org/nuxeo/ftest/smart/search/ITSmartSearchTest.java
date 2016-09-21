@@ -167,8 +167,7 @@ public class ITSmartSearchTest extends AbstractTest {
         assertEquals(docTitle, content.getListResults().get(0).findElement(By.className("documentTitle")).getText());
 
         // go to personal ws and delete saved search
-        asPage(HomePage.class).switchToDocumentBase().switchToPersonalWorkspace();
-        ContentTabSubPage persoContent = asPage(ContentTabSubPage.class);
+        ContentTabSubPage persoContent = asPage(HomePage.class).switchToPersonalWorkspace().getContentTab();
         // check that it's visible here too
         assertEquals(1, driver.findElement(By.id("document_content")).findElements(By.linkText(sfTitle)).size());
         persoContent.removeDocument(sfTitle);
