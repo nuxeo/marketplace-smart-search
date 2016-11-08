@@ -11,8 +11,10 @@
   <nuxeo-validation>primary_validation</nuxeo-validation>
   <production-state>testing</production-state>
   <platforms>
-    <platform>cap-@DISTRIB_VERSION@</platform>
-    <platform>cap-@DISTRIB_VERSION@-HF*</platform>
+    <platform>server-@DISTRIB_VERSION@*</platform>
   </platforms>
+  <dependencies>
+    <package>nuxeo-jsf-ui</package>
+  </dependencies>
   <visibility>PUBLIC</visibility>
 </package>
