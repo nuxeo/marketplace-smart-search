@@ -11,7 +11,8 @@
   <nuxeo-validation>primary_validation</nuxeo-validation>
   <production-state>testing</production-state>
   <platforms>
-    <platform>server-@DISTRIB_VERSION@*</platform>
+    <platform>server-@DISTRIB_VERSION@</platform>
+    <platform>server-@DISTRIB_VERSION@-*</platform>
   </platforms>
   <dependencies>
     <package>nuxeo-jsf-ui</package>
