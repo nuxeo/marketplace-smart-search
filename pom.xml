@@ -9,7 +9,7 @@
 
   <groupId>org.nuxeo.marketplace.smartsearch</groupId>
   <artifactId>marketplace-smart-search-parent</artifactId>
-  <version>1.8.10</version>
+  <version>1.8.11-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Utility POM for Smart Search Nuxeo Package</name>
 
