@@ -72,7 +72,7 @@ public class ITSmartSearchTest extends AbstractTest {
         UsersTabSubPage usersTab = base.getAdminCenter().getUsersGroupsHomePage().getUsersTab();
         usersTab = usersTab.searchUser(TEST_USERNAME);
         if (!usersTab.isUserFound(TEST_USERNAME)) {
-            usersTab.getUserCreatePage().createUser(TEST_USERNAME, TEST_USERNAME, "lastname1", "company1", "email1",
+            usersTab.getUserCreatePage().createUser(TEST_USERNAME, TEST_USERNAME, "lastname1", "company1", "devnull@nuxeo.com",
                     TEST_PASSWORD, "members");
         }
         base = usersTab.exitAdminCenter();
